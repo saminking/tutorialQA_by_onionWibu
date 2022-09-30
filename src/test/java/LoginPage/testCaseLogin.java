@@ -10,7 +10,7 @@ public class testCaseLogin extends WebDriverController {
 
     public static void main(String[] args) throws Exception {
 
-        WebDriverController.setup("chrome");
+        WebDriverController.setup("firefox");
         String baseUrl = "https://bss-stg.myrepublic.net.id/signin";
         driver.get(baseUrl);
 

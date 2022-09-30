@@ -56,8 +56,8 @@ public class loginPage {
     }
 
     public void validLogin () {
-        setUserNameTxtBox("admin");
-        setPassTxtBox("pass");
+        setUserNameTxtBox("admin@myrepublic.co.id");
+        setPassTxtBox("P@ssw0rd");
         clickLoginBtn();
     }
 

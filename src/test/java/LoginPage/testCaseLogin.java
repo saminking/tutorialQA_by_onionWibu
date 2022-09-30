@@ -1,7 +1,9 @@
 package LoginPage;
 
 import SetupMethod.WebDriverController;
+import SetupMethod.WebDriverController.*;
 import loginPage.loginPage;
+import org.openqa.selenium.WebDriver;
 
 //Scenario :
 //as user i want to login using valid username and password
@@ -9,9 +11,11 @@ import loginPage.loginPage;
 public class testCaseLogin extends WebDriverController {
 
     public static void main(String[] args) throws Exception {
+        String browser = "chrome";
+        WebDriverController.setup(browser);
 
-        WebDriverController.setup("chrome");
         String baseUrl = "https://bss-stg.myrepublic.net.id/signin";
+
         driver.get(baseUrl);
 
         //Creating loginPage Object

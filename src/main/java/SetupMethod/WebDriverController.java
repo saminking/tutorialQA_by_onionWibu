@@ -22,14 +22,14 @@ public class WebDriverController {
             }
 
             //Check if parameter passed as 'chrome'
-            if(browser.equalsIgnoreCase("chrome"))
+            else if(browser.equalsIgnoreCase("chrome"))
             {
                 System.setProperty("webdriver.chrome.driver", "D:\\driver\\chromedriver.exe");
                 driver = new ChromeDriver();
             }
 
             //Check if parameter passed as 'Edge'
-            if(browser.equalsIgnoreCase("IE"))
+            else if(browser.equalsIgnoreCase("IE"))
             {
                 System.setProperty("webdriver.ie.driver","U:\\path\\IEDriverServer.exe");
                 InternetExplorerDriver driver;
@@ -42,7 +42,8 @@ public class WebDriverController {
                 throw new Exception("Browser is not correct");
             }
 
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            driver.manage().window().maximize();
             return driver;
         }
     }

@@ -10,9 +10,9 @@ public class testCaseLogin extends WebDriverController {
 
     public static void main(String[] args) throws Exception {
 
-        WebDriverController.setup("chrome");
+        WebDriverController.setup("firefox");
         String baseUrl = "https://bss-stg.myrepublic.net.id/signin";
-        driver.get(baseUrl);
+        driver.get(baseUrl); //driver nya dari variable driver di webdrivercontroller
 
         //Creating loginPage Object
         loginPage loginPage = new loginPage(driver);
@@ -21,7 +21,7 @@ public class testCaseLogin extends WebDriverController {
         loginPage.setPassTxtBox("P@ssw0rd");
         loginPage.clickLoginBtn();
 
-        driver.quit();
+//        driver.quit();
     }
 
 }

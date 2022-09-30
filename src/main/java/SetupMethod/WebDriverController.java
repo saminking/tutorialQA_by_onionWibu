@@ -1,5 +1,6 @@
 package SetupMethod;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,21 +18,24 @@ public class WebDriverController {
             if(browser.equalsIgnoreCase("firefox"))
             {
                 //create firefox instance
-                System.setProperty("webdriver.gecko.driver", "U:\\path\\geckodriver.exe");
+//                System.setProperty("webdriver.gecko.driver", "U:\\path\\geckodriver.exe");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
 
             //Check if parameter passed as 'chrome'
-            if(browser.equalsIgnoreCase("chrome"))
+            else if(browser.equalsIgnoreCase("chrome"))
             {
-                System.setProperty("webdriver.chrome.driver", "D:\\driver\\chromedriver.exe");
+//                System.setProperty("webdriver.chrome.driver", "D:\\driver\\chromedriver.exe");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }
 
             //Check if parameter passed as 'Edge'
-            if(browser.equalsIgnoreCase("IE"))
+            else if(browser.equalsIgnoreCase("IE"))
             {
-                System.setProperty("webdriver.ie.driver","U:\\path\\IEDriverServer.exe");
+//                System.setProperty("webdriver.ie.driver","U:\\path\\IEDriverServer.exe");
+                WebDriverManager.iedriver().setup();
                 InternetExplorerDriver driver;
                 driver = new InternetExplorerDriver();
             }

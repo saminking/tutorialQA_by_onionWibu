@@ -3,13 +3,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.Assert;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main (String[] args) {
-        System.setProperty("webdriver.chrome.driver","D:\\driver\\chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver","D:\\driver\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         String baseUrl = "https://bss-stg.myrepublic.net.id/signin";

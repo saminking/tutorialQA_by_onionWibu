@@ -9,11 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 public class WebDriverController {
 
-    public class setupMethods
-    {
-        WebDriver driver;
+        public static WebDriver driver;
 
-        public WebDriver setup(String browser) throws Exception
+        public static WebDriver setup(String browser) throws Exception
         {
             //Check if parameter passed from TestNG is 'firefox'
             if(browser.equalsIgnoreCase("firefox"))
@@ -48,4 +46,3 @@ public class WebDriverController {
             return driver;
         }
     }
-}

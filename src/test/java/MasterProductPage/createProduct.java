@@ -28,6 +28,6 @@ public class createProduct extends WebDriverController {
 
         CreatedProductForm.selectStatusTesting();
 
-
+        driver.quit();
     }
 }

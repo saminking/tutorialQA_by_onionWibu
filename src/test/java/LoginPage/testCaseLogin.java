@@ -1,9 +1,7 @@
 package LoginPage;
 
 import SetupMethod.WebDriverController;
-import SetupMethod.WebDriverController.*;
 import loginPage.loginPage;
-import org.openqa.selenium.WebDriver;
 
 //Scenario :
 //as user i want to login using valid username and password
@@ -25,7 +23,6 @@ public class testCaseLogin extends WebDriverController {
         loginPage.setPassTxtBox("P@ssw0rd");
         loginPage.clickLoginBtn();
 
-        driver.quit();
     }
 
 }

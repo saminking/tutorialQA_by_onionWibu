@@ -3,6 +3,9 @@ package MasterProduct;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import javax.swing.*;
 
 public class createProductForm {
 
@@ -19,10 +22,11 @@ public class createProductForm {
     By productPrice = By.name("productPrice");
     By discCheckBox = By.xpath("//input[@type='checkbox']");
     By statusDropDown = By.xpath("//div[contains(text(), 'Status')]");
+    By statusTesting = By.xpath("//*[@id=\"react-select-46-option-0\"]");
 
     public void selectStatusTesting(){
         driver.findElement(statusDropDown).click();
-        driver.findElement(statusDropDown).sendKeys("Testing");
-        driver.findElement(statusDropDown).sendKeys(Keys.ENTER);
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
     }
 }

@@ -42,7 +42,7 @@ public class WebDriverController {
                 throw new Exception("Browser is not correct");
             }
 
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
             return driver;
         }

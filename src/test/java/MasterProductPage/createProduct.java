@@ -23,10 +23,28 @@ public class createProduct extends WebDriverController {
 
         createProductForm CreatedProductForm = new createProductForm(driver);
 
+        CreatedProductForm.inputProductName("TV A");
+        CreatedProductForm.inputDescProduct("Description");
+        CreatedProductForm.inputProductTag("Tag");
+        CreatedProductForm.inputProductCost("100000");
+        CreatedProductForm.inputProductPrice("100000");
+        CreatedProductForm.selectPaymentTypeMonthly();
+        CreatedProductForm.selectProductAreaAll();
+        CreatedProductForm.selectClusterAll();
+        CreatedProductForm.selectStatus("testing");
+        CreatedProductForm.selectBusinessLineAll();
+        CreatedProductForm.selectProductLineOnnet();
+        CreatedProductForm.selectChannelAll();
+        CreatedProductForm.selectChargeTypeAll();
+        CreatedProductForm.selectProdukTypeTVAddons();
+        CreatedProductForm.clickSimpanButton();
+
+        masterProductPage.catalogElementIsPresent();
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,250)", "");
 
-        CreatedProductForm.selectStatusTesting();
+
 
         driver.quit();
     }

@@ -23,15 +23,15 @@ public class createProduct extends WebDriverController {
 
         createProductForm CreatedProductForm = new createProductForm(driver);
 
-        CreatedProductForm.inputProductName("TV A");
+        CreatedProductForm.inputProductName("tv addon test");
         CreatedProductForm.inputDescProduct("Description");
         CreatedProductForm.inputProductTag("Tag");
-        CreatedProductForm.inputProductCost("100000");
+        CreatedProductForm.inputProductCost("100");
         CreatedProductForm.inputProductPrice("100000");
         CreatedProductForm.selectPaymentTypeMonthly();
         CreatedProductForm.selectProductAreaAll();
         CreatedProductForm.selectClusterAll();
-        CreatedProductForm.selectStatus("testing");
+        CreatedProductForm.selectStatus("live");
         CreatedProductForm.selectBusinessLineAll();
         CreatedProductForm.selectProductLineOnnet();
         CreatedProductForm.selectChannelAll();
@@ -46,6 +46,6 @@ public class createProduct extends WebDriverController {
 
 
 
-        driver.quit();
+
     }
 }

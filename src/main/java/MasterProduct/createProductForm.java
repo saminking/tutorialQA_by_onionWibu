@@ -74,7 +74,7 @@ public class createProductForm {
         driver.findElement(clusterdropDown).click();
         WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(20));
         w.until(ExpectedConditions.visibilityOfElementLocated(assertCheckboxElement));
-        System.out.println("Muncul");
+        System.out.println("sukses");
         driver.findElement(buttonBerikutnyaCluster).click();
 
     }

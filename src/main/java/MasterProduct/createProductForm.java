@@ -3,8 +3,11 @@ package MasterProduct;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.security.Key;
+import java.time.Duration;
 
 public class createProductForm {
     WebDriver driver;
@@ -17,24 +20,108 @@ public class createProductForm {
     By descProduct = By.name("productDesc");
     By tagProduct = By.name("productTag");
     By costProduct = By.name("productCost");
+
+    By productPrice = By.name("productPrice");
     By checkBoxDiscount = By.xpath("//input[@type='checkbox']");
-    By statusDropdown = By.xpath("//div[contains(text(), 'Status')]");
+    By dropdownStatus = By.xpath("//div[contains(text(), 'Status')]");
+    By dropdownBusinessLine = By.xpath("//div[contains(text(), 'Business Line')]");
+    By dropdownProductLine = By.xpath("//div[contains(text(), 'Product Line')]");
+    By dropdownChannel = By.xpath("//div[contains(text(), 'Channel')]");
+    By paymentTypeMonthly = By.xpath("//input[@name='product-pay-type'][@value='4']");
+    By dropdownProductArea = By.xpath("/html/body/div/div[1]/div[2]/div[2]/div/div/div/div/div[3]/div/div/div/div[2]/div/div[2]/div[3]/div/div/div[1]");
+    By dropdownChargeType = By.xpath("//div[contains(text(), 'Charge Type')]");
+    By dropdownProductCluster = By.xpath("//div[@class='select-cluster__placeholder css-1wa3eu0-placeholder'][contains(text(), 'Select...')]");
+    By dropdownProductType = By.xpath("//div[contains(text(), 'Produk Type')]");
 
-    public void setProductName() {
-        driver.findElement(productName).sendKeys("Product Automation 7");
+    By assertCheckboxElement = By.xpath("//label[normalize-space()='PILIH SEMUA CLUSTER']");
+
+    By btn_simpan = By.xpath("//button[contains(text(), 'Simpan')]");
+
+    By buttonNext = By.xpath("//button[contains(text(), 'Berikutnya')]");
+
+    public void setSimpanProduct() {
+        driver.findElement(btn_simpan).click();
     }
 
-    public void setDescProduct() {
-        driver.findElement(descProduct).sendKeys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.");
+    public void setDropdownProductType() {
+        driver.findElement(dropdownProductType).click();
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
     }
 
-    public void setTagProduct() {
-        driver.findElement(tagProduct).sendKeys("product-automation-7");
+    public void setDropdownProductCluster() {
+        driver.findElement(dropdownProductCluster).click();
+        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(15));
+        w.until(ExpectedConditions.visibilityOfElementLocated(assertCheckboxElement));
+        System.out.println("Show popup");
+        Actions keyDown = new Actions(driver);
+        driver.findElement(buttonNext).click();
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
     }
 
-    public void setStatusDropdown() {
-        driver.findElement(checkBoxDiscount).click();
-        driver.findElement(checkBoxDiscount).sendKeys("Testing");
-        driver.findElement(checkBoxDiscount).sendKeys(Keys.ENTER);
+    public void setDropdownChargeType() {
+        driver.findElement(dropdownChargeType).click();
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+    }
+
+    public void setDropdownProductArea() {
+        driver.findElement(dropdownProductArea).click();
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+    }
+
+    public void setPaymentTypeMonthly() {
+        driver.findElement(paymentTypeMonthly).click();
+    }
+
+    public void setDropdownChannel() {
+        driver.findElement(dropdownChannel).click();
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+    }
+
+    public void setCostProduct(String CostProduct) {
+        driver.findElement(costProduct).sendKeys("450000");
+    }
+
+    public void setProductPrice(String ProductPrice) {
+        driver.findElement(productPrice).sendKeys("500000");
+    }
+
+    public void setDropdownStatus(String status) {
+        driver.findElement(dropdownStatus).click();
+        Actions keyDown = new Actions(driver);
+        if (status.equalsIgnoreCase("testing"))   {
+            keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+        } else if (status.equalsIgnoreCase("live")) {
+            keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+        } else if(status.equalsIgnoreCase("retired")) {
+            keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
+        }
+    }
+
+    public void setDropdownBusinessLineAll() {
+        driver.findElement(dropdownBusinessLine).click();
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+    }
+
+    public void setDropdownProductLineOnnet() {
+        driver.findElement(dropdownProductLine).click();
+        Actions keyDown = new Actions(driver);
+        keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+    }
+
+    public void setProductName(String ProductName) {
+        driver.findElement(productName).sendKeys(ProductName);
+    }
+
+    public void setDescProduct(String DescriptionProduct) {
+        driver.findElement(descProduct).sendKeys(DescriptionProduct);
+    }
+
+    public void setTagProduct(String TagsProduct) {
+        driver.findElement(tagProduct).sendKeys(TagsProduct);
     }
 }

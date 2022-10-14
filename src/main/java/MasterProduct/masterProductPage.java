@@ -21,6 +21,6 @@ public class masterProductPage extends WebDriverController{
     }
 
     public void clickBtnCreateProduct() {
-        driver.findElement(mainSubProductMenu).click();
+        driver.findElement(btnCreateProduct).click();
     }
 }

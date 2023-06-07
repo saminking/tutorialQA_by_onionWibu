@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 //Scenario :
 //as user i want to login using valid username and password
+//astrid
 
 public class testCaseLogin extends WebDriverController {
 
